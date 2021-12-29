@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { isEmpty } from 'lodash'
 import './BoardContent.scss'
-import Column from '../Column/Column'
-
+import Column from '../../components/Column/Column'
+import { mapOrder } from '../../utilities/sorts'
 import { initialData } from '../../actions/initialData.js';
 
 
 
 function BoardContent () {
-    const [board, setBoard] = useState({})
+    const [board, setBoard] = useState([])
     const [columns, setColumns] = useState([])
 
     useEffect(() => {
@@ -16,7 +16,9 @@ function BoardContent () {
        if (boardFromDB) {
            setBoard(boardFromDB)
 
-           setColumns(boardFromDB.columns)
+
+    
+           setColumns(mapOrder(boardFromDB.columns, boardFromDB.columnOrder, 'id'))
        }
     }, [])
     
@@ -26,8 +28,8 @@ function BoardContent () {
 
     return (
         <div className="board-content">
-            {columns.map((column, index) => {
-                <Column key={index} column={column} />})}
+            {columns.map((column, index) => <Column key={index} column={column}/>)}
+            
         
         </div>
     )

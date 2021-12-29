@@ -2,15 +2,16 @@ import React from "react";
 
 import './Card.scss';
 
-function Card () {
+function Card(props) {
+    const { card } = props
+
     return (
         <li className="card-item">
-            <img src="https://quangduc.com/images/file/aT7nHPOU0AgBAB8b/cat-07.jpg" alt="traild-alt-img"></img>
-            Title: uiapp
-        </li> 
+            {card.cover && <img src={card.cover} className="card-cover" alt="trail-alt-img"></img>}
+            {card.title}
+        </li>
     )
 }
-
 
 
 export default Card

@@ -31,6 +31,14 @@ $column-height: calc(#{$board-content-height} - #{$gap * 2});
     line-height: $column-footer-height;
     border-bottom-left-radius: $column-border-radius;
     border-bottom-right-radius: $column-border-radius;
+    color: #888;
+    .footer-actions {
+      margin-left: $gap;
+      cursor: pointer;
+      &:hover {
+        color: #333;
+      }
+    }
   }
   .card-list {
     list-style: none;
@@ -52,6 +60,7 @@ $column-height: calc(#{$board-content-height} - #{$gap * 2});
     .card-ghost {
       transition: transform 0.18s ease;
       transform: rotateZ(5deg);
+      font-weight: bold;
     }
 
     .card-ghost-drop {

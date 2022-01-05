@@ -4,6 +4,7 @@
   height: $board-content-height;
   display: flex;
   margin: 0 $gap $gap;
+  padding-left: 5px;
   overflow-x: auto;
   &::after {
     content: "";
